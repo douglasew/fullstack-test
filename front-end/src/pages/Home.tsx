@@ -48,7 +48,7 @@ function Home() {
 
     return (
         <Container>
-            <h1>Cadastro paciente</h1>
+            <h1 style={{ textAlign: 'center' }}>Cadastro paciente</h1>
 
             <Form onSubmit={SubmitForm}>
                 <Form.Group>

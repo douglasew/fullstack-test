@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
-import * as ReactBootstrap from 'react-bootstrap';
+import { Container, Form, Button, FormCheck } from 'react-bootstrap';
 import api from '../services/api';
 import { useHistory, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +12,7 @@ interface Atendimento {
     comissao: number;
 }
 
+//Buscando o id do paciente no Parâmetros
 interface PacienteParams {
     id: string;
 }
@@ -32,12 +33,16 @@ function Atendimento() {
         comissao: 0,
     });
 
+    // Adicionando os valores pelo nome
+
     function uptadeModel(e: ChangeEvent<HTMLInputElement>) {
         setModel({
             ...model,
             [e.target.name]: e.target.value,
         });
     }
+
+    //Enviando os dados para o banco
 
     async function SubmitForm(e: FormEvent) {
         e.preventDefault();
@@ -50,46 +55,101 @@ function Atendimento() {
     }
 
     return (
-        <ReactBootstrap.Container>
-            <h1>Atendimento</h1>
+        <Container>
+            <h1 style={{ textAlign: 'center' }}>Atendimento</h1>
 
-            <h4>Selecione um profissional</h4>
-            <ReactBootstrap.Form onSubmit={SubmitForm}>
-                <input type="text" value={params.id} />
-                <ReactBootstrap.Form.Select
-                    aria-label="Default select example"
+            <Form onSubmit={SubmitForm}>
+                <Form.Group>
+                    <Form.Label>Paciente ID:</Form.Label>
+                    <Form.Control
+                        type="number"
+                        name="paciente_id"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            uptadeModel(e)
+                        }
+                    />
+                </Form.Group>
+
+                <Form.Label>Profissional:</Form.Label>
+
+                <Form.Check
+                    type="radio"
+                    label="Diego Anderson Leonardo Monteiro"
                     name="profissional_id"
-                >
-                    <option>Selecione um profissional</option>
-                    <option value="1">Diego Anderson Leonardo Monteiro</option>
-                    <option value="2">Cecília Aline Cavalcanti</option>
-                </ReactBootstrap.Form.Select>
+                    value="1"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        uptadeModel(e)
+                    }
+                />
+                <Form.Check
+                    type="radio"
+                    label="Cecília Aline Cavalcanti"
+                    name="profissional_id"
+                    value="2"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        uptadeModel(e)
+                    }
+                />
 
-                <h4>Selecione um procedimento</h4>
+                <Form.Label>Procedimento:</Form.Label>
 
-                <ReactBootstrap.Form.Select
-                    aria-label="Default select example"
+                <Form.Check
+                    type="radio"
+                    label="Cirurgia"
                     name="procedimento_id"
-                >
-                    <option>Selecione um procedimento</option>
-                    <option value="1">Cirurgia</option>
-                    <option value="2">Exame</option>
-                    <option value="3">Consulta</option>
-                </ReactBootstrap.Form.Select>
+                    value="1"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        uptadeModel(e)
+                    }
+                />
+                <Form.Check
+                    type="radio"
+                    label="Exame"
+                    name="procedimento_id"
+                    value="2"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        uptadeModel(e)
+                    }
+                />
+                <Form.Check
+                    type="radio"
+                    label="Consulta"
+                    name="procedimento_id"
+                    value="3"
+                    onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                        uptadeModel(e)
+                    }
+                />
 
-                <div id="valores">
-                    Comissão:
-                    <input type="number" name="comissao" />
-                    <br />
-                    Valor:
-                    <input type="number" name="valor" />
-                </div>
+                <Form.Group>
+                    <Form.Label>Valor:</Form.Label>
+                    <Form.Control
+                        id="valor"
+                        type="number"
+                        name="valor"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            uptadeModel(e)
+                        }
+                    />
+                </Form.Group>
 
-                <ReactBootstrap.Button variant="primary" type="submit">
-                    Marcar
-                </ReactBootstrap.Button>
-            </ReactBootstrap.Form>
-        </ReactBootstrap.Container>
+                <Form.Group>
+                    <Form.Label>Comissão:</Form.Label>
+                    <Form.Control
+                        type="number"
+                        id="comissao"
+                        name="comissao"
+                        onChange={(e: ChangeEvent<HTMLInputElement>) =>
+                            uptadeModel(e)
+                        }
+                    />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                    Confirmar
+                </Button>
+            </Form>
+        </Container>
     );
 }
 
