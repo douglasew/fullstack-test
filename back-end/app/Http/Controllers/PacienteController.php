@@ -44,10 +44,10 @@ class PacienteController extends Controller
             $paciente = Paciente::find($id);
             $paciente->delete();
 
-            return ['success'=> true];
+            return response()->json(['success' => true], 200);
         }
         catch(\Exception $error){
-            return ['error' => $error];
+            return response()->json(['success' => false, 'error' => $error], 400);
         }
     }
 
