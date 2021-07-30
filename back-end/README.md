@@ -2,7 +2,7 @@
 
 Clone repository:
 ```sh
-git clone https://github.com/douglasew/projeto-laravel.git
+git clone https://github.com/douglasew/fullstack-test.git
 ```
 Install dependencies:
 ```sh
@@ -53,6 +53,6 @@ GET  [/pacientes](http://localhost/example-api/public/api/clientes)  [todos os p
 POST  [/paciente](http://localhost/example-api/public/api/cliente)  [criar um paciente]
 DELETE  [/paciente/{id}](http://localhost/example-api/public/api/clientes/id)  [deletar um paciente]
 
-POST  [/atendimento/{id}](http://localhost/example-api/public/api/clientes/id)  [atendimento de um paciente]  
+POST  [/atendimento](http://localhost/example-api/public/api/clientes/id)  [atendimento de um paciente]  
 DELETE  [/atendimento/{id}](http://localhost/example-api/public/api/clientes/id)  [deletar um atendimento]
 
