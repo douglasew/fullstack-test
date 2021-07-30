@@ -34,7 +34,7 @@ function Atendimento() {
         comissao: 0,
     });
 
-    // Adicionando os valores pelo nome
+    // Adicionando os valores pelo nome.
 
     function uptadeModel(e: ChangeEvent<HTMLInputElement>) {
         setModel({
