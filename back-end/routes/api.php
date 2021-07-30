@@ -9,8 +9,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Rotas paciente
+
 Route::get('pacientes', [PacienteController::class, 'index']);
 Route::post('paciente', [PacienteController::class, 'paciente']);
+Route::delete('paciente/{id}', [AtendimentoController::class, 'destroy']);
+
+//Rotas Atendimento
+
 Route::post('atendimento', [AtendimentoController::class, 'atendimento']);
-Route::get('atendimento/{id}', [AtendimentoController::class, 'show']);
 Route::delete('paciente/{id}', [AtendimentoController::class, 'destroy']);

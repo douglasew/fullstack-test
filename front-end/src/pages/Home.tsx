@@ -17,12 +17,16 @@ function Home() {
         telefone: '',
     });
 
+    // Adicionando os valores do campo pelo nome
+
     function uptadeModel(e: ChangeEvent<HTMLInputElement>) {
         setModel({
             ...model,
             [e.target.name]: e.target.value,
         });
     }
+
+    // Adicionando os dados no banco e verificando se houve algum erro
 
     async function SubmitForm(e: FormEvent) {
         e.preventDefault();
@@ -51,7 +55,7 @@ function Home() {
                     <Form.Label>Nome:</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Nome"
+                        placeholder="Maria da Silva"
                         name="nome"
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             uptadeModel(e)
@@ -63,7 +67,7 @@ function Home() {
                     <Form.Label>telefone:</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Nome"
+                        placeholder="(82)9999-2222"
                         name="telefone"
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             uptadeModel(e)

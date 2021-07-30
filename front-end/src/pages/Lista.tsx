@@ -11,6 +11,8 @@ interface Paciente {
 }
 
 function Lista() {
+    // Buscando a lista de pacientes
+
     const [pacientes, setPacientes] = useState<Paciente[]>([]);
 
     useEffect(() => {
