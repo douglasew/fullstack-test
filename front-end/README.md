@@ -3,7 +3,7 @@
 Clone repository:
 
 ```sh
-git clone https://github.com/douglasew/font-projeto.git
+git clone https://github.com/douglasew/fullstack-test.git
 ```
 
 Install dependencies:
