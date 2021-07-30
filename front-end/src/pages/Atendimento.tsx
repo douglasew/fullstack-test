@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { Container, Form, Button, FormCheck } from 'react-bootstrap';
 import api from '../services/api';
+
 import { useHistory, useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/atendimento.css';
